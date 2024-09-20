@@ -1,0 +1,12 @@
+<h2>Simulados Agrupados por Tema</h2>
+
+{% for tema, simulados in temas.items %}
+    <h3>{{ tema }}</h3>
+    <ul>
+        {% for simulado in simulados %}
+            <li>{{ simulado.nome }}</li>
+        {% endfor %}
+    </ul>
+{% endfor %}
+
+<a href="{% url 'criar_simulado' %}">Criar Novo Simulado</a>

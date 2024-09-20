@@ -1,0 +1,20 @@
+<h2>Pesquisar Simulado</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Pesquisar</button>
+</form>
+
+{% if resultados %}
+    <h3>Resultados da Pesquisa:</h3>
+    <ul>
+        {% for simulado in resultados %}
+            <li>{{ simulado.nome }} - Tema: {{ simulado.tema }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Nenhum simulado encontrado.</p>
+{% endif %}
+
+<a href="{% url 'listar_simulados' %}">Voltar à lista de simulados</a>

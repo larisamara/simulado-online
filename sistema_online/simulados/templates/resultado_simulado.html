@@ -1,0 +1,18 @@
+<h2>Resultado do Simulado: {{ simulado.nome }}</h2>
+
+<p>Total de Questões: {{ respostas_certas + respostas_erradas }}</p>
+<p>Respostas Certas: {{ respostas_certas }}</p>
+<p>Respostas Erradas: {{ respostas_erradas }}</p>
+<p>Total de Pontos: {{ total_pontos }}</p>
+
+<h3>Resultados por Questão:</h3>
+<ul>
+    {% for resultado in resultados %}
+        <li>
+            <strong>{{ resultado.enunciado }}</strong><br>
+            Sua Resposta: {{ resultado.resposta_usuario }} - {{ resultado.resultado }} (Pontos: {{ resultado.pontos }})
+        </li>
+    {% endfor %}
+</ul>
+
+<a href="{% url 'listar_simulados' %}">Voltar à lista de simulados</a>

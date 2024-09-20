@@ -1,0 +1,20 @@
+<h2>Lista de Simulados</h2>
+<table>
+    <tr>
+        <th>Nome</th>
+        <th>Questões</th>
+    </tr>
+    {% for simulado in simulados %}
+    <tr>
+        <td>{{ simulado.nome }}</td>
+        <td>
+            <ul>
+                {% for questao in simulado.questoes.all %}
+                <li>{{ questao.enunciado }}</li>
+                {% endfor %}
+            </ul>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'criar_simulado' %}">Criar Novo Simulado</a>

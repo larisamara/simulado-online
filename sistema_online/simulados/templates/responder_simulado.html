@@ -1,0 +1,18 @@
+<h2>Responda o Simulado: {{ simulado.nome }}</h2>
+<form method="POST">
+    {% csrf_token %}
+    <h3>Questões:</h3>
+    <ul>
+        {% for questao in questoes %}
+        <li>
+            <strong>{{ questao.questao.enunciado }}</strong><br>
+            <input type="radio" name="{{ questao.questao.id }}" value="A"> {{ questao.questao.alternativa_a }}<br>
+            <input type="radio" name="{{ questao.questao.id }}" value="B"> {{ questao.questao.alternativa_b }}<br>
+            <input type="radio" name="{{ questao.questao.id }}" value="C"> {{ questao.questao.alternativa_c }}<br>
+            <input type="radio" name="{{ questao.questao.id }}" value="D"> {{ questao.questao.alternativa_d }}<br>
+        </li>
+        {% endfor %}
+    </ul>
+    <button type="submit">Submeter Respostas</button>
+</form>
+<a href="{% url 'listar_simulados' %}">Voltar à lista de simulados</a>

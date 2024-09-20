@@ -1,0 +1,17 @@
+<h2>Criar Simulado</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <h3>Selecione as Questões:</h3>
+    <ul>
+        {% for questao in questoes %}
+        <li>
+            <input type="checkbox" name="questoes" value="{{ questao.pk }}">
+            {{ questao.enunciado }} 
+            <input type="number" name="pontuacoes" placeholder="Pontuação" min="1" required>
+        </li>
+        {% endfor %}
+    </ul>
+    <button type="submit">Criar Simulado</button>
+</form>
+<a href="{% url 'listar_simulados' %}">Voltar à lista de simulados</a>
