@@ -1,0 +1,20 @@
+<h2>Lista de Questões</h2>
+<table>
+    <tr>
+        <th>Enunciado</th>
+        <th>Peso</th>
+        <th>Resposta Correta</th>
+        <th>Ações</th>
+    </tr>
+    {% for questao in questoes %}
+    <tr>
+        <td>{{ questao.enunciado }}</td>
+        <td>{{ questao.peso }}</td>
+        <td>{{ questao.resposta_correta }}</td>
+        <td>
+            <a href="{% url 'editar_questao' questao.pk %}">Editar</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'cadastrar_questao' %}">Cadastrar Nova Questão</a>
